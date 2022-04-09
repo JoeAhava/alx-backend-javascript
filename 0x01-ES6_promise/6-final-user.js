@@ -10,7 +10,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ).then((v) => {
     const res = [];
     for (const value of v) {
-      let status = 'sucess';
+      let status = 'fulfilled';
       if (value instanceof Error) {
         status = 'failed';
       }
