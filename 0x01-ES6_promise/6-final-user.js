@@ -12,5 +12,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   {
     status: 200,
     value: v[0].lastName,
-  }])).catch((err) => ([{ status: 400, value: err }]));
+  }])).catch((err) => ({ status: 400, value: err }));
 }
