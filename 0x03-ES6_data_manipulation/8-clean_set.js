@@ -5,7 +5,7 @@ export default function cleanSet(set, startString) {
   }
   set.forEach((value) => {
     if (value.startsWith(startString, 0)) {
-      results.push(value.slice(startString.length, -1));
+      results.push(value.slice(startString.length, value.length));
     }
   });
   return results.join('-');
