@@ -7,7 +7,6 @@ export default function cleanSet(set, startString) {
     if (startString.length > 0) {
       set.forEach((value) => {
         if (value.startsWith(startString, 0)) {
-          console.log(value.slice(startString.length));
           results.push(value.slice(startString.length));
         }
       });
