@@ -1,3 +1,7 @@
 export default function getListStudentIds(objs) {
-  return typeof objs === typeof [] ? objs.map((obj) => obj.id) : [];
+  if (typeof objs !== typeof []) {
+    return [];
+  }
+  const result = objs.map((obj) => obj.id);
+  return result.filter((o) => o !== undefined);
 }
