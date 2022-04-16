@@ -4,7 +4,7 @@ export default class AirPort {
     this._code = code;
   }
 
-  toStringTag() {
+  toString() {
     return this._code;
   }
 }
