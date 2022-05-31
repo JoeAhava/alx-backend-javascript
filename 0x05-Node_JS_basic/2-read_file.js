@@ -3,33 +3,32 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const file = fs.readFileSync(path, { encoding: 'utf-8' });
-    let students = file.split('\n');
+    const students = file.split('\n');
+    let cs = 0;
+    let swe = 0;
+    const csList = [];
+    const sweList = [];
     students.shift();
-    students = students.map((student) => student.split(','));
-    // console.log(students);
-    const fields = students.map((std) => std[3]);
-    const fieldData = {};
-    // console.log(fields);
-    fields.forEach((value) => {
-      if (fieldData[value]) {
-        fieldData[value] += 1;
-      } else {
-        fieldData[value] = 1;
+    students.forEach((student) => {
+      const temp = student.split(',');
+      switch (temp[3]) {
+        case 'CS': {
+          cs += 1;
+          csList.push(temp[0]);
+          break;
+        }
+        case 'SWE': {
+          swe += 1;
+          sweList.push(temp[0]);
+          break;
+        }
+        default: break;
       }
-    //   console.log(fieldData);
     });
-    const fieldDataStd = Object(fieldData);
-    students.forEach((value) => {
-      if (fieldDataStd[value[3]].length > 0) {
-        fieldDataStd[value[3]].push(value[0]);
-      } else {
-        fieldDataStd[value[3]] = [value[0]];
-      }
-    //   console.log(fieldDataStd);
-    });
+
     process.stdout.write(`Number of students: ${students.length}
-Number of students in CS: ${fieldData.CS.length}. List: ${fieldData.CS}
-Number of students in SWE: ${fieldData.SWE.length}. List: ${fieldData.SWE}\n`);
+Number of students in CS: ${cs}. List: ${csList.join(', ')}
+Number of students in SWE: ${swe}. List: ${sweList.join(', ')}\n`);
   } catch (err) {
     console.log(err);
     throw new Error('Cannot load the database');
