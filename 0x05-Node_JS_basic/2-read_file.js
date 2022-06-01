@@ -3,12 +3,13 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const file = fs.readFileSync(path, { encoding: 'utf-8' });
-    const students = file.split('\n');
+    let students = file.split('\n');
     let cs = 0;
     let swe = 0;
     const csList = [];
     const sweList = [];
     students.shift();
+    students = students.filter((s) => typeof s !== 'undefined' && s.length > 0 && s !== null);
     students.forEach((student) => {
       const temp = student.split(',');
       switch (temp[3]) {
