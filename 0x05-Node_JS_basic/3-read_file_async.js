@@ -7,12 +7,13 @@ function countStudents(path) {
         // console.error(err);
         reject(err);
       }
-      const students = data.split('\n');
+      let students = data.split('\n');
       let cs = 0;
       let swe = 0;
       const csList = [];
       const sweList = [];
       students.shift();
+      students = students.filter((s) => typeof s !== 'undefined' && s.length > 0 && s !== null);
       students.forEach((student) => {
         const temp = student.split(',');
         switch (temp[3]) {
