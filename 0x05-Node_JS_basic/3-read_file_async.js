@@ -4,7 +4,7 @@ function countStudents(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
-        console.error(err);
+        // console.error(err);
         reject(err);
       }
       const students = data.split('\n');
