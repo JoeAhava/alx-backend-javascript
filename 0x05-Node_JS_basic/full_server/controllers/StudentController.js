@@ -3,7 +3,7 @@ import readDatabase from '../utils';
 export default class StudentController {
   static async getAllStudents(req, res) {
     try {
-      const data = await readDatabase('database.csv');
+      const data = await readDatabase(req.database);
       // let students = 0;
       // for (const d in data) {
       //   if (d) {
@@ -26,7 +26,7 @@ export default class StudentController {
       res.status(500).end('Major parameter must be CS or SWE');
     }
     try {
-      const data = await readDatabase('database.csv');
+      const data = await readDatabase(req.database);
       res.status(200).end(`List: ${data[req.params.major].join(', ')}`);
     } catch (err) {
       // console.error(err);
