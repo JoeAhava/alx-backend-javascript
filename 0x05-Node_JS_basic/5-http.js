@@ -30,12 +30,15 @@ const app = http.createServer(async (req, res) => {
             default: break;
           }
         });
+        res.setHeader('Status', 200);
+        res.write('This is the list of our students');
         res.write(`Number of students: ${students.length}\n`);
         res.write(`Number of students in CS: ${cs}. List: ${csList.join(', ')}\n`);
         res.end(`Number of students in SWE: ${swe}. List: ${sweList.join(', ')}`);
         break;
       } catch (err) {
-        res.end('Cannot load the database');
+        res.setHeader('Status', 404);
+        res.end('This is the list of our students');
       }
 
       break;
