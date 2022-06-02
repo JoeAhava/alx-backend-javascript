@@ -5,6 +5,5 @@ export default function (req, res, next) {
     res.status(500).end('Cannot load the database');
   }
   req.database = db;
-  console.log(process.argv);
   next();
 }
