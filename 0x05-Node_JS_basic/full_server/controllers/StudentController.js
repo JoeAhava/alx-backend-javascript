@@ -13,7 +13,7 @@ export default class StudentController {
       res.write('This is the list of our students\n');
       res.write(`Number of students: ${students}\n`);
       res.write(`Number of students in CS: ${data.CS.length}. List: ${data.CS.join(', ')}\n`);
-      res.end(`Number of students in SWE: ${data.SWE.length}. List: ${data.SWE.join(', ')}`);
+      res.status(200).end(`Number of students in SWE: ${data.SWE.length}. List: ${data.SWE.join(', ')}`);
     } catch (err) {
       res.status(500).end(err.message);
     }
