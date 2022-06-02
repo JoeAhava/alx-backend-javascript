@@ -37,7 +37,7 @@ const app = http.createServer(async (req, res) => {
         res.end(`Number of students in SWE: ${swe}. List: ${sweList.join(', ')}`);
         break;
       } catch (err) {
-        res.setHeader('Status', 404);
+        res.setHeader('Status', 200);
         res.end('This is the list of our students');
       }
 
