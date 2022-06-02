@@ -6,7 +6,7 @@ const app = http.createServer(async (req, res) => {
     case '/students': {
       res.setHeader('Content-Type', 'text/plain');
       try {
-        const data = await countStudents('database.csv');
+        const data = await countStudents(process.argv[2]);
         let students = data.split('\n');
         let cs = 0;
         let swe = 0;
@@ -31,7 +31,7 @@ const app = http.createServer(async (req, res) => {
           }
         });
         res.setHeader('Status', 200);
-        res.write('This is the list of our students');
+        res.write('This is the list of our students\n');
         res.write(`Number of students: ${students.length}\n`);
         res.write(`Number of students in CS: ${cs}. List: ${csList.join(', ')}\n`);
         res.end(`Number of students in SWE: ${swe}. List: ${sweList.join(', ')}`);
