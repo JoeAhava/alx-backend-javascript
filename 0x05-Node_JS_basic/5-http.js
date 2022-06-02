@@ -5,6 +5,7 @@ const app = http.createServer(async (req, res) => {
   switch (req.url) {
     case '/students': {
       res.setHeader('Content-Type', 'text/plain');
+      res.write('This is the list of our students\n');
       try {
         const data = await countStudents(process.argv[2]);
         let students = data.split('\n');
@@ -31,14 +32,13 @@ const app = http.createServer(async (req, res) => {
           }
         });
         res.setHeader('Status', 200);
-        res.write('This is the list of our students\n');
         res.write(`Number of students: ${students.length}\n`);
         res.write(`Number of students in CS: ${cs}. List: ${csList.join(', ')}\n`);
         res.end(`Number of students in SWE: ${swe}. List: ${sweList.join(', ')}`);
         break;
       } catch (err) {
-        res.setHeader('Status', 200);
-        res.end('This is the list of our students');
+        res.setHeader('Status', 500);
+        res.end('Cannot load the database');
       }
 
       break;
