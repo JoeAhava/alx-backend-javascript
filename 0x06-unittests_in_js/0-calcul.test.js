@@ -1,4 +1,4 @@
-const calculateNumber = require("./0-calcul");
+const calculateNumber = require("./0-calcul_chai");
 const assert = require("assert");
 
 describe("calculateNumber", () => {
