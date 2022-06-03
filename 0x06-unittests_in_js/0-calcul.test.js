@@ -1,66 +1,14 @@
-const calculateNumber = require("./0-calcul_chai");
+const calculateNumber = require("./0-calcul.js");
+
 const assert = require("assert");
 
-describe("calculateNumber SUM", () => {
-    it("both int", () => {
-        assert.strictEqual(calculateNumber(1, 3), 4);
-    });
-    it("first float", () => {
-        assert.strictEqual(calculateNumber(1.2, 3), 4);
-    });
-    it("second float", () => {
-        assert.strictEqual(calculateNumber(1, 3.7), 5);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(4.5, 1.4), 6);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(1.2, 3.7), 5);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(1.5, 3.7), 6);
+describe('calculateNumber', () => {
+    it('check result', () => {
+	assert.strictEqual(calculateNumber(1, 3), 4);
+	assert.strictEqual(calculateNumber(1.2, 3), 4);
+	assert.strictEqual(calculateNumber(1, 3.7), 5);
+	assert.strictEqual(calculateNumber(4.5, 1.4), 6);
+	assert.strictEqual(calculateNumber(1.2, 3.7), 5);
+	assert.strictEqual(calculateNumber(1.5, 3.7), 6);
     });
 });
-
-describe("calculateNumber SUBTRACT", () => {
-    it("both int", () => {
-        assert.strictEqual(calculateNumber(1, 3), 4);
-    });
-    it("first float", () => {
-        assert.strictEqual(calculateNumber(1.2, 3), 4);
-    });
-    it("second float", () => {
-        assert.strictEqual(calculateNumber(1, 3.7), 5);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(4.5, 1.4), 6);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(1.2, 3.7), 5);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(1.5, 3.7), 6);
-    });
-});
-
-describe("calculateNumber DIVIDE", () => {
-    it("both int", () => {
-        assert.strictEqual(calculateNumber(1, 3), 4);
-    });
-    it("first float", () => {
-        assert.strictEqual(calculateNumber(1.2, 3), 4);
-    });
-    it("second float", () => {
-        assert.strictEqual(calculateNumber(1, 3.7), 5);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(4.5, 1.4), 6);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(1.2, 3.7), 5);
-    });
-    it("both float", () => {
-        assert.strictEqual(calculateNumber(1.5, 3.7), 6);
-    });
-});
-
